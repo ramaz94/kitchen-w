@@ -18,6 +18,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
+    position: relative;
 }
 
 .header__menu-items {
@@ -29,12 +30,15 @@
 .header__menu-item {
     font-size: 18px;
     font-weight: 700;
+    border-bottom: 1px solid transparent;
+    transition: .5s;
+    padding-bottom: 10px;
 }
 
-.header__menu-item.active {
+.header__menu-item:hover {
     color: $pink;
     border-bottom: 1px solid $pink;
-    padding-bottom: 10px;
+   
 }
 
 .header__awards {
@@ -93,6 +97,69 @@ h1 {
 
 // end header
 
+// start burger
+
+    .burger {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: 2px solid #5A5A5A;
+        background-color: #fff;
+        padding-top: 13px;
+        margin: 0 10px 0 10px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        background-color: #5A5A5A;
+        height: 5px;
+        width: 35px;
+        margin: 0 auto;
+        transition: 0.7s;
+    }
+    
+    .bar2 {
+        width: 16px;
+        margin: 5px 7px 5px auto;
+    } 
+    
+    
+    .burger.active {
+        background-color: #5A5A5A;
+        border: 2px solid #5A5A5A;
+        & .bar2 {
+            width: 35px;
+            border-radius: 0 2px 2px 0;
+            background-color: #fff;
+        }
+        & .bar1 {
+            transform: translateX(8px) translateY(2px) rotate(45deg);
+            border-radius: 2px;
+            width: 26px;
+            background-color: #fff;
+            
+            
+        }
+        & .bar3 {
+            transform: translateX(8px) translateY(-2px) rotate(-45deg);
+            border-radius: 2px;
+            width: 26px;
+            background-color: #fff;
+        }
+    }
+    
+     .header__social-links .header__social-link {
+        display: inline-block;
+    }
+    .header__social-link {
+        margin: 10px 10px;
+    }
+    
+// end  burger
+
+
+
 // start dreams 
 
     .dreams {
@@ -103,6 +170,9 @@ h1 {
     .dreams__content, .dreams__img {
         width: 50%;
     }
+
+
+    
     .dreams__content {
         margin: 30px 0;
     }
@@ -134,11 +204,10 @@ h1 {
     }
 
     .dreams__img {
-       
-        max-height: 934px;
+        max-height: 928px;
         img {
             width: 100%;
-            height: 100%;
+            max-height: 928px;
         }
     }
 
@@ -171,6 +240,7 @@ h1 {
         color: #fff;
         font-size: 18px;
         text-align: center;
+        margin-bottom: 20px;
     }
 
     .reviews__slider {
@@ -199,9 +269,14 @@ h1 {
         top: 193px;
     } 
     .slick-arrow-prew {
-        left: -70px;
+        left: -55px;
         top: 193px;
     }
+    .slick-list {
+        text-align: center;
+    }
+
+
 
     .item__top {
         min-height: 130px;
@@ -270,6 +345,7 @@ h1 {
   .reviews__rates {
       display: flex;
       justify-content: space-between;
+      align-items: center;
   }
   .rates__oll-reviews {
       color: #fff;
@@ -398,14 +474,25 @@ h1 {
     font-size: 40px;
     font-weight: 700;
     text-shadow: 1px 1px 2px $gray;
+    transition: .7s;
+    &:hover {
+        font-size: 42px;
+        color: $pink;
+    }
+    
 }
+
 .item-title__pink {
     font-size: 60px;
     color: $pink;
     text-shadow: none;
     max-width: 550px;
+    transition: .7s;
     span {
         display: block;
+    }
+    &:hover {
+        font-size: 65px;
     }
 }
 
@@ -413,7 +500,7 @@ h1 {
     display: block;
     background-color: $pink;
     color: #fff;
-    padding: 54px 70px 68px;
+    padding: 55px 70px 68px;
 }
 .item__content-title {
     font-size: 30px;
@@ -447,6 +534,7 @@ h1 {
         background-color: #fff;
     }
 }
+
 .item-btn__project {
     margin-right: 80px;
 }
@@ -490,10 +578,11 @@ h1 {
         justify-content: center;
         background-image: url(../img/inst__logo-big.png);
         background-repeat: no-repeat;
-        background-position: left top 20px;
+        background-position: left 20px top 20px;
 
     }
     .insta__link-btn {
+        min-width: 330px;
         margin-left: 130px;
         padding-left: 96px;
         position: relative;
@@ -511,6 +600,38 @@ h1 {
            }
         }
     }
+
+
+    // .insta__phone-inner {
+    //     width: 346px;
+    //     height: 692px;
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     padding-top: 48px;
+    //     overflow: hidden;
+    
+    // }
+
+    // .insta__phone-moc {
+    //     transform: translateX(-1px);
+    //     width: 301px;
+    //     height: 624px;
+    //     margin: 0 auto;
+    //     overflow-y: scroll;
+    //     border-radius: 0 0 30px 30px;
+    //     &::-webkit-scrollbar {
+    //         display: none;
+    //     }
+    //     img {
+    //         width: 301px;
+    //     }
+    // }
+
+
+
+
+
 
 // end insta
 
@@ -537,7 +658,7 @@ h1 {
         display: inline-block;
         font-size: 18px;
         font-weight: 700;
-        color: #fff;
+        color: $pink;
         border-bottom: 1px solid $gray;
         margin-bottom: 10px;
         padding-bottom: 10px;
@@ -631,3 +752,5 @@ h1 {
     }
     
 // end footer
+
+@import '_media';

@@ -1,41 +1,31 @@
 $(function(){
 
  
-    $("#rateYo").rateYo({
-        rating: 5,
-        readOnly: true,
-        starWidth: "17px",
-        spacing: "6px",
-        ratedFill: "#FFCB45"
-      });
-
     $('.reviews__slider').slick({
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 1,
         prevArrow: '<button class="slick-arrow-prew" type="button"><img src="./img/slider__btn-left.png"></button>',
         nextArrow: '<button class="slick-arrow-next" type="button"><img src="./img/slider__btn-right.png"></button>',
-        // responsive: [
-        //   {
-        //     breakpoint: 1400,
-        //     settings: {
-        //       slidesToShow: 2,
-        //       slidesToScroll: 2,
-        //       infinite: true,
-        //       dots: true,
-        //     }
-        //   },
-        //   {
-        //     breakpoint: 850,
-        //     settings: {
-        //       slidesToShow: 1,
-        //       slidesToScroll: 1,
-        //       infinite: true,
-        //       dots: true,
-        //     }
-        //   }
-        // ]
+        responsive: [
+          {
+            breakpoint: 1290,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
       });
+
+      $('.burger').on('click', function(){
+        $('.header__menu').slideToggle();
+      });
+
+      $('.burger').on('click', function(){
+        $('.burger').toggleClass('active');
+      });
+  
 
 
 
